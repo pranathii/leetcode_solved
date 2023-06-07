@@ -1,0 +1,36 @@
+solution1:
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        
+        //sort(nums.begin(),nums.end(),greater<int>());
+        unordered_set<int> s;
+        s.insert(nums.begin(),nums.end()); 
+        auto it = s.begin();
+        nums.clear();
+        for(int i=0;i<s.size();i++){
+            
+            nums.push_back(*it);
+            it++;
+        }
+        reverse(nums.begin(),nums.end());
+        
+        return s.size();
+    }
+};
+solution2:
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        if(nums.size()==0) 
+        {  return 0;}
+        else{
+            int c=0;
+            for(int i=1;i<nums.size();i++){
+                if(nums[c]!=nums[i]){
+                    nums[++c]=nums[i];
+                }
+            } return c+1;
+    }
+    }
+};

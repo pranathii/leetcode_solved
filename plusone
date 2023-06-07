@@ -1,0 +1,19 @@
+//plus one 
+vector<int> plusOne(vector<int>& digits) {
+        vector<int>ans;
+        for (int i=0; i<digits.size(); i++) {
+            ans.push_back(digits[i]); 
+        }
+        int n=9;
+        if(digits[digits.size()]< n){
+            ans[digits.size()]+=1;
+            //return ans;
+        }
+        else if(digits[digits.size()]==n){
+            ans[digits.size()]=0;
+            digits.erase(digits.end());
+            plusOne(digits);
+            //return ans;
+        }
+        return ans;
+    }

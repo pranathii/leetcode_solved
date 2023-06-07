@@ -1,0 +1,20 @@
+//done without using string concept
+// at runtime using sum as an int gives out of bound error therefore use long
+class Solution {
+public:
+    bool isPalindrome(int x) {
+       int temp=x;   int r=0; long sum=0; 
+while(x>0)    
+{    
+r=x%10;    
+//sum=(sum*10)+r;
+sum*=10; sum+=r;    
+x=x/10;    
+}    
+if(temp==sum)    
+    return true;
+else    
+    return false;
+ 
+    }
+};

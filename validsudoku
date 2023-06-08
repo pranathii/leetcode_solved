@@ -1,0 +1,60 @@
+class Solution {
+public:
+     bool checkrow(vector<vector<char>>& board) {
+         unordered_set<char> s; int r=0;
+         while(r<9){ 
+         s.insert(board[r].begin(),board[r].end()); 
+             //s.erase(".");
+            s.erase(s.find("."));
+             if(s.size()!=9)
+                return false;
+            else
+                r++;}
+         return true;
+        
+    }
+    
+    bool checkcolumn(vector<vector<char>>& board) {
+        unordered_set<char> s; int c=0;
+          //s.insert(board[][c].begin(),board[][c].end()); 
+        while(c<9){    
+        for(int i=0;i<9;i++){
+                s.insert(board[i][c]);
+            }
+            s.erase(s.find("."));
+        if(s.size()!=9)
+                return false;
+            else
+                c++;}
+        return true;
+    
+    }
+    bool checkbox(vector<vector<char>>& board) {
+         unordered_set<char> s;
+          int l=3;
+       // s.insert(board[r].begin(),board[r].end()); 
+        for(int i=0;i<l;i++){ 
+        for(int j=0;j<l;j++){
+            s.insert(board[i][j]);
+            //s.erase(".");
+            s.erase(s.find("."));
+            if(s.size()!=9)
+                return false;
+            else
+                i+=3;
+                j+=3; l+=3;
+           
+        }}
+        
+             return true;
+        
+    }
+    
+    bool isValidSudoku(vector<vector<char>>& board) {
+        int n=9;
+        if(checkbox(board)&&checkcolumn(board)&&checkrow(board))
+            return true;
+        else 
+            return false;
+    }
+};

@@ -1,0 +1,40 @@
+/*class Solution {
+public:
+    int firstUniqChar(string s) { 
+        int index; int c[s.length()]; vector<int> res;
+        for(int j=0;j<s.length();j++){
+                    c[j]=0;
+               }
+        for(int i=0;i<s.length();i++){
+            for(int j=0;j<s.length();j++){
+                if(s[i]==s[j])
+                    c[i]++;
+               }}
+              for(int i=0;i<s.length();i++){
+                  if(c[i]==1){
+                      res.push_back(i);
+                  }
+                 
+             }      
+          //res.sort(res.begin(),res.end());
+           // std::sort(res.begin(),res.end());
+        if(!res.empty())
+            return res.front();
+        else
+            return -1;
+          }
+        };*/
+        //using a hashmap further simplifies the problem
+        class Solution {
+public:
+    int firstUniqChar(string s) { 
+            map<char, int> G; 
+        for (int i{}; i < s.size(); i++) { 
+      G[s[i]]++;  
+    } 
+        for (int i{}; i < s.size(); i++) { 
+      if (G[s[i]] == 1) return i; 
+    } 
+        return -1;
+    }
+          };
